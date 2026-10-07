@@ -22,11 +22,12 @@ mkdir -p "$HERMES_HOME"
 cp "$REPO_DIR/soul/SOUL.md" "$HERMES_HOME/SOUL.md"
 echo "   SOUL.md baru terpasang."
 
-# 3. Guardrails + goals
-echo ">> [3/7] Pasang guardrails + goals..."
+# 3. Guardrails + goals + USER.md
+echo ">> [3/7] Pasang guardrails + goals + USER.md..."
 cp "$REPO_DIR/config/guardrails.yaml" "$HERMES_HOME/guardrails.yaml"
 [ -f "$HERMES_HOME/goals.yaml" ] || cp "$REPO_DIR/config/goals.yaml" "$HERMES_HOME/goals.yaml"
-echo "   guardrails.yaml + goals.yaml terpasang (edit sesuai selera)"
+[ -f "$HERMES_HOME/USER.md" ] || cp "$REPO_DIR/user/USER.md" "$HERMES_HOME/USER.md"
+echo "   guardrails.yaml + goals.yaml + USER.md terpasang (edit sesuai selera)"
 
 # 4. Skill pack
 echo ">> [4/7] Pasang skill pack..."
