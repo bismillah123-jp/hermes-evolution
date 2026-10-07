@@ -13,14 +13,10 @@ approvals:
   # "deny" = command berbahaya diblokir, agen cari jalan lain. Aman untuk default.
   cron_mode: deny
   unattended_mode: deny
-  # Pola yang DIBLOKIR SELALU — bahkan di mode off/yolo. Sesuaikan.
-  deny:
-    - "rm -rf / *"
-    - "rm -rf ~*"
-    - "mkfs*"
-    - "dd if=* of=/dev/*"
-    - ":(){ :|:& };:"        # fork bomb
-    - "*--yolo*"
+  # Deny-list permanen: DICABUT atas permintaan Sir.
+  # Artinya TIDAK ADA command yang diblokir otomatis — semuanya (termasuk rm -rf /)
+  # hanya memicu approval prompt. Satu tap "Approve" yang salah = fatal.
+  # Kalau nanti mau balikin, tambah lagi blok approvals.deny: (list pola glob).
 
 # 2. Reasoning effort global — bikin dia "lebih pinter" di semua sesi.
 #    Level: none | minimal | low | medium | high | xhigh | max | ultra
