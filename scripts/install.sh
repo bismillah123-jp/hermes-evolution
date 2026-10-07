@@ -36,6 +36,11 @@ for f in goals.yaml USER.md; do
 done
 echo "   guardrails.yaml + goals.yaml + USER.md terpasang (ditimpasemua)"
 
+# 3b. Dashboard theme
+echo ">> [3b/7] Pasang dashboard theme..."
+mkdir -p "$HERMES_HOME/dashboard-themes"
+cp "$REPO_DIR/dashboard/"*.yaml "$HERMES_HOME/dashboard-themes/"
+echo "   theme eclipse-ops terpasang — pilih di dashboard header (ikon palet)."
 # 4. Skill pack
 echo ">> [4/7] Pasang skill pack..."
 mkdir -p "$HERMES_HOME/skills"
