@@ -2,12 +2,13 @@
 # Merge manual ke ~/.hermes/config.yaml. Key dari docs resmi hermes-agent.
 # Prinsip: kurangi permission-ping untuk hal aman, tetap rem untuk hal destruktif.
 
-# 1. Approval mode — "smart" = LLM penilai risiko yang mutusin per-command.
-#    Aman → auto-approve. Berbahaya → auto-deny. Ragu → tanya Sir.
+# 1. Approval mode — "manual" = tiap command berbahaya SELALU tanya Sir dulu.
+#    Jangan pakai "smart" (yang berbahaya langsung auto-deny tanpa nanya) — Sir maunya:
+#    kalau bahaya → tanya dulu, biar dia yang mutusin.
 #    (JANGAN pakai "off"/yolo kecuali di sandbox sekali pakai.)
 approvals:
-  mode: smart
-  timeout: 300
+  mode: manual
+  timeout: 300                   # detik nunggu jawaban Sir sebelum timeout
   # Cron & webhook jalan headless (nggak ada yang jawab prompt):
   # "deny" = command berbahaya diblokir, agen cari jalan lain. Aman untuk default.
   cron_mode: deny
