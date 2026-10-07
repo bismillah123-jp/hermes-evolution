@@ -29,6 +29,7 @@ hermes-agent versi terbaru; pack ini nambahin 20% yang belum ada.
 | `docs/TOOLS.md` | Power guide: reasoning effort per job, tangga web (search→fetch→browser), backend browser, MCP |
 | `docs/EXECUTION.md` | Disiplin eksekusi: workspace, verifikasi=menjalankan, tier gas/tanya/jangan, anti-loop |
 | `dashboard/eclipse-ops.yaml` | Theme dashboard "Eclipse Ops" — command-center gelap: cyan + amber, chamfered cards, scanlines |
+| `dashboard/minimal.yaml` | Theme dashboard "Minimal" — clean modern light: netral lembut, aksen indigo, whitespace lega |
 | `config/guardrails.yaml` | Rem proaktivitas: quiet hours 23:00–07:00, max 3 pesan/hari, topik yang boleh/tidak |
 | `config/learning.yaml` | Snippet buat `config.yaml`: aktifin background review + kurator skill 24 jam |
 | `docs/ENABLE-LEARNING.md` | Checklist verifikasi learning loop bawaan |

@@ -1,0 +1,76 @@
+# Minimal — dashboard theme buat Hermes
+# Install: copy ke ~/.hermes/dashboard-themes/ lalu pilih di theme switcher (ikon palet di header).
+# Gaya: clean modern SaaS — netral lembut, aksen indigo, whitespace lega. Tanpa sci-fi.
+
+name: minimal
+label: Minimal
+description: "Clean & modern — soft neutrals, indigo accent, generous whitespace. Simple."
+
+palette:
+  background: "#f6f7f9"
+  midground: "#1c2530"
+  foreground:
+    hex: "#4f46e5"
+    alpha: 1.0
+  warmGlow: "rgba(79, 70, 229, 0.06)"
+  noiseOpacity: 0
+
+typography:
+  fontSans: '"Inter", system-ui, -apple-system, "Segoe UI", sans-serif'
+  fontMono: '"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace'
+  fontDisplay: '"Inter", system-ui, sans-serif'
+  fontUrl: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+  baseSize: "14px"
+  lineHeight: "1.6"
+  letterSpacing: "0"
+
+layout:
+  radius: "0.75rem"
+  density: comfortable
+
+layoutVariant: standard
+
+componentStyles:
+  card:
+    background: "#ffffff"
+    boxShadow: "0 1px 2px rgba(16, 24, 40, 0.05), 0 1px 3px rgba(16, 24, 40, 0.08)"
+  header:
+    background: "rgba(255, 255, 255, 0.88)"
+    boxShadow: "inset 0 -1px 0 rgba(16, 24, 40, 0.08)"
+  badge:
+    boxShadow: "inset 0 0 0 1px rgba(79, 70, 229, 0.18)"
+  progress:
+    background: "linear-gradient(90deg, #4f46e5, #818cf8)"
+  footer:
+    background: "rgba(255, 255, 255, 0.7)"
+
+colorOverrides:
+  primary: "#4f46e5"
+  primaryForeground: "#ffffff"
+  accent: "#eef0ff"
+  accentForeground: "#3730a3"
+  ring: "#4f46e5"
+  border: "#e5e8ee"
+  success: "#16a34a"
+  warning: "#d97706"
+  destructive: "#dc2626"
+  muted: "#f1f3f6"
+  mutedForeground: "#64748b"
+  card: "#ffffff"
+  cardForeground: "#1c2530"
+  input: "#ffffff"
+
+customCSS: |
+  /* Minimal: transisi halus + fokus jelas, tanpa dekorasi. */
+  [data-slot="card"], button {
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  [data-slot="card"]:hover {
+    box-shadow: 0 4px 12px rgba(16, 24, 40, 0.08), 0 2px 4px rgba(16, 24, 40, 0.06);
+  }
+  ::selection { background: rgba(79, 70, 229, 0.18); }
+  :focus-visible { outline: 2px solid rgba(79, 70, 229, 0.6); outline-offset: 2px; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #cbd2dc; border-radius: 8px; border: 2px solid #f6f7f9; }
+  ::-webkit-scrollbar-thumb:hover { background: #a8b2c2; }
