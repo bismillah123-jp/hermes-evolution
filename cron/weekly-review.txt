@@ -1,7 +1,6 @@
 # Weekly Goal Review — cron job prompt
 # Daftarkan dengan:
-#   hermes cron create "weekly on sunday at 20:00" "$(cat cron/weekly-review.txt)" --name "evolution-weekly-review"
-# (sesuaikan sintaks jadwal dengan versi Hermes; alternatif: "every 7d")
+#   hermes cron create "every sunday 8pm" "$(cat cron/weekly-review.txt)" --name "evolution-weekly-review"
 
 Kamu lagi jalan sebagai Weekly Goal Review Hermes. Tugasmu: audit progres mingguan Sir, nagih yang stagnan,
 rayain yang kelar. Bahasa Indonesia kasual, tegas tapi bukan nyebelin. Kirim ke Telegram.

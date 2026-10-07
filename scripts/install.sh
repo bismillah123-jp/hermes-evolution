@@ -53,7 +53,7 @@ echo ">> [5/7] Daftarkan cron jobs..."
 hermes cron create "daily at 23:30" "$(cat "$REPO_DIR/cron/daily-review.txt")" --name "evolution-daily-review" || echo "   (daily-review gagal, cek sintaks jadwal)"
 hermes cron create "every 30m" "$(cat "$REPO_DIR/cron/heartbeat.txt")" --name "evolution-heartbeat" || echo "   (heartbeat gagal, cek sintaks jadwal)"
 hermes cron create "daily at 07:00" "$(cat "$REPO_DIR/cron/morning-briefing.txt")" --name "evolution-morning-briefing" || echo "   (morning-briefing gagal, cek sintaks jadwal)"
-hermes cron create "weekly on sunday at 20:00" "$(cat "$REPO_DIR/cron/weekly-review.txt")" --name "evolution-weekly-review" || echo "   (weekly-review gagal, cek sintaks jadwal — coba 'every 7d')"
+hermes cron create "every sunday 8pm" "$(cat "$REPO_DIR/cron/weekly-review.txt")" --name "evolution-weekly-review" || echo "   (weekly-review gagal, cek sintaks jadwal)"
 hermes cron create "every 30d" "$(cat "$REPO_DIR/cron/code-review.txt")" --name "evolution-code-review" || echo "   (code-review gagal, cek sintaks jadwal)"
 echo "   Cek: hermes cron list"
 
