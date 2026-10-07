@@ -1,0 +1,40 @@
+# Daily Self-Review — cron job prompt
+# Daftarkan dengan:
+#   hermes cron create "every 1d at 23:30" "$(cat cron/daily-review.txt)" --name "evolution-daily-review"
+# (sesuaikan jam; format jadwal mengikuti sintaks cron Hermes: "every 1d", "daily at 23:30", dll)
+
+Kamu lagi jalan sebagai Daily Self-Review Hermes. Tugasmu: bikin Hermes besok lebih pinter dari Hermes hari ini.
+
+LANGKAH:
+
+1. Cari semua sesi kemarin. Pakai session search (FTS5) — cari sesi dalam 24 jam terakhir.
+   Baca yang substansial (ada tool call, ada task, ada koreksi). Abaikan sesi kosong/test.
+
+2. Untuk tiap sesi substansial, ekstrak:
+   - APA YANG GAGAL / SALAH: error, asumsi yang keliru, perintah yang nggak jalan, jawaban yang dikoreksi Sir.
+   - KOREKSINYA: apa yang benernya, dari mana taunya (output tool, omongan Sir, docs).
+   - POLA: apakah ini kejadian berulang? Apakah ada root cause yang sama dengan kegagalan lama?
+
+3. Tulis pelajaran yang DURABLE ke memory. Aturan nulis memory:
+   - Spesifik dan actionable. "gflow-cli swissmarley nggak punya command create-project (cek repo resmi 2026-10-05)" BENAR.
+     "Cek dokumentasi dulu" SALAH (generik, nggak guna).
+   - Sertakan tanggal dan sumber bukti.
+   - Jangan duplikat pelajaran yang udah ada — update/revisi kalau ada info baru.
+   - Maksimal 5 pelajaran per hari. Kualitas > kuantitas.
+
+4. Kalau ada pola kegagalan yang solusinya bisa jadi SKILL (reusable workflow), buat skill-nya pakai
+   skill creation (agentskills.io standard). Jangan bikin skill buat hal one-off.
+
+5. Kalau ada skill buatan agen yang kemarin kepake tapi caranya masih jelek, patch skill itu
+   (skill_manage) — catat apa yang diubah dan kenapa.
+
+6. Update model Sir kalau ada yang berubah: preferensi baru, project baru, orang baru, kebiasaan baru.
+   Jangan nulis data sensitif (password, token, API key) ke memory. Pernah.
+
+7. Terakhir: kirim ringkasan singkat ke Sir via Telegram (platform target job ini):
+   - Berapa sesi direview, berapa pelajaran dicatat (sebutkan 1-2 yang paling penting).
+   - Skill baru/diupdate apa (kalau ada).
+   - Jujur kalau ada yang gagal direview dan kenapa.
+   Maksimal 8 baris. Bahasa Indonesia kasual. Kalau NOL pelajaran dan NOL perubahan, kirim SATU baris:
+   "Review harian: nggak ada pelajaran baru, semua sesi kemarin bersih." — jangan diem total, Sir mau tau
+   job-nya jalan.

@@ -1,0 +1,39 @@
+# Guardrails — rem buat proaktivitas Hermes
+# File ini authoritative buat heartbeat job. Edit sesuai selera Sir.
+
+timezone: "Asia/Jakarta"
+
+# Jam sunyi: heartbeat DIEM kecuali darurat beneran
+# (darurat = data hilang, service kritis down, task gagal total)
+quiet_hours:
+  start: "23:00"
+  end: "07:00"
+
+proactive_limits:
+  max_per_day: 3          # maksimal pesan inisiatif sendiri per hari
+  min_gap_minutes: 30     # jeda minimal antar pesan proaktif
+  silent_ok: true         # diem total kalau nggak ada yang worth itu NORMAL & BAGUS
+
+# Topik yang BOLEH diangkat sendiri oleh heartbeat
+allowed_topics:
+  - service_down          # 9router / muse-bridge / taskrelay / cloudflared mati
+  - task_failed           # task TaskRelay gagal total dan butuh keputusan Sir
+  - cron_blocked          # cron job Hermes blocked_config (kredensial/config rusak)
+  - disk_critical         # disk > 90%
+  - user_asked_followup   # Sir pernah minta "kasih tau gue kalau X kejadian"
+
+# Topik yang TIDAK BOLEH diangkat sendiri
+forbidden_topics:
+  - routine_ok            # "semua aman" — nggak pernah worth satu pesan
+  - repeated_info         # info yang udah disampaikan sebelumnya
+  - speculation           # "kayaknya X bakal rusak" tanpa bukti
+  - chit_chat             # basa-basi tanpa isi. Kalau Sir mau ngobrol, dia yang mulai.
+
+# Layanan yang dicek heartbeat (sesuaikan dengan box Sir)
+watch_services:
+  - name: "9router"
+    health: "http://127.0.0.1:20128/api/health"
+  - name: "muse-bridge"
+    health: "http://127.0.0.1:8765/health"
+  - name: "taskrelay"
+    health: "http://127.0.0.1:18901/api/health"

@@ -1,0 +1,25 @@
+# Learning loop bawaan — snippet config.yaml
+# Merge manual ke ~/.hermes/config.yaml (jangan timpa file, tambahkan/ubah key ini aja).
+# Semua key di bawah ini dari docs resmi hermes-agent (Oktober 2026).
+
+# Review otomatis tiap turn: capture memory + usulan skill.
+# Jalan di model utama; kalau mau hemat, arahkan ke model murah.
+auxiliary:
+  background_review:
+    enabled: true
+    # provider: openrouter
+    # model: google/gemini-3-flash-preview
+
+# Seberapa sering agent "di-nudge" buat nulis memory & bikin skill.
+# Default-nya konservatif; turunkan angkanya biar lebih agresif belajar.
+# memory:
+#   nudge_interval: 10
+# skills:
+#   creation_nudge_interval: 10
+
+# Kurator skill: prune skill nganggur otomatis. Interval default 7 hari;
+# set 24 jam biar library-nya rapi tiap hari.
+curator:
+  enabled: true
+  interval_hours: 24
+  # consolidate: true   # opsional, mahal (50-100 API calls): gabung skill yang overlap
