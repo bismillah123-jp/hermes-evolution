@@ -38,8 +38,11 @@ echo "   guardrails.yaml + goals.yaml + USER.md terpasang (ditimpasemua)"
 
 # 3b. Dashboard theme
 echo ">> [3b/7] Pasang dashboard theme..."
-mkdir -p "$HERMES_HOME/dashboard-themes"
-cp "$REPO_DIR/dashboard/"*.yaml "$HERMES_HOME/dashboard-themes/"
+THEME_DIR="$HERMES_HOME/dashboard-themes"
+# Kadang path ini adanya sebagai file (bukan folder) — backup lalu ganti jadi folder.
+[ -f "$THEME_DIR" ] && mv "$THEME_DIR" "$THEME_DIR.bak.$(date +%Y%m%d-%H%M%S)" && echo "   ($THEME_DIR ternyata file, dibackup dulu)"
+mkdir -p "$THEME_DIR"
+cp "$REPO_DIR/dashboard/"*.yaml "$THEME_DIR/"
 echo "   theme eclipse-ops terpasang — pilih di dashboard header (ikon palet)."
 # 4. Skill pack
 echo ">> [4/7] Pasang skill pack..."
