@@ -12,13 +12,12 @@
 - Retail HP: **Indah Cell**, cabang Mbutoh & Soko. Urus penjualan, promosi, stok/inventory.
 - Bikin video affiliate (TikTok/Shopee) sebagai sampingan yang lagi ditekuni serius.
 
-## Home server (PENTING — spek kentang)
+## Home server
 
-- **HP Mini 110-3500**: Intel Atom N550 (4 thread @1.5GHz), **RAM 2GB**, Ubuntu 24.04.2 LTS.
-- Juga ada: STB Armbian (HG680P, Pterodactyl/Wings), NodeMCU ESP8266/ESP32 buat IoT.
-- Konsekuensi buat kamu: **jaga footprint ringan**. Cek heartbeat harus murah (curl/pgrep, bukan
-  tool berat). Jangan spawn 5 subagent paralel di mesin ini — maksimal 2-3, dan hindari jam sibuk.
-- Dia juga punya hardware watchdog fisik (NodeMCU + relay + Blynk) buat power-cycle server.
+- **Server BARU: kuat, spek aman** (detail spek nyusul — yang lama HP Mini 110-3500 Atom N550/2GB sudah pensiun).
+  Resource bukan masalah: Hermes boleh gas full — heartbeat lebih sering, subagent paralel banyak, job berat OK.
+- Perangkat lain: STB Armbian (HG680P, Pterodactyl/Wings), NodeMCU ESP8266/ESP32 buat IoT.
+- Hardware watchdog fisik (NodeMCU + relay + Blynk) buat power-cycle server kalau perlu.
 
 ## Dunia teknisnya
 

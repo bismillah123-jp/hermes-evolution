@@ -37,7 +37,7 @@ Selesai kalau: [kriteria konkret]
 
 ## Aturan
 
-- Maksimal 4-5 subagent paralel untuk task biasa. Lebih dari itu = susah digabung.
+- Maksimal 6-8 subagent paralel untuk task besar (server Sir kuat). Lebih dari itu = susah digabung.
 - Subagent TIDAK boleh spawn subagent lagi (no nesting).
 - Kalau satu subagent gagal: nilai apakah hasilnya bisa diganti/diskip. Jangan retry buta 3x.
 - Token budget: delegasi paralel itu mahal. Untuk task rutin/murah, kerjain sendiri aja.

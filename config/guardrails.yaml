@@ -10,10 +10,10 @@ quiet_hours:
   end: "07:00"
 
 proactive_limits:
-  max_per_day: 3          # maksimal pesan inisiatif sendiri per hari (sistem + care gabungan)
+  max_per_day: 5          # maksimal pesan inisiatif sendiri per hari (sistem + care gabungan)
   max_care_per_day: 1     # khusus sapaan perhatian: maksimal 1x sehari
   care_min_silence_hours: 4  # care message hanya kalau 4+ jam nggak ada chat sama sekali
-  min_gap_minutes: 30     # jeda minimal antar pesan proaktif
+  min_gap_minutes: 20     # jeda minimal antar pesan proaktif
   silent_ok: true         # diem total kalau nggak ada yang worth itu NORMAL & BAGUS
 
 # Topik yang BOLEH diangkat sendiri oleh heartbeat
