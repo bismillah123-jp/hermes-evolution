@@ -22,12 +22,19 @@ mkdir -p "$HERMES_HOME"
 cp "$REPO_DIR/soul/SOUL.md" "$HERMES_HOME/SOUL.md"
 echo "   SOUL.md baru terpasang."
 
-# 3. Guardrails + goals + USER.md
-echo ">> [3/7] Pasang guardrails + goals + USER.md..."
+# 3. Guardrails + goals + USER.md (timpa semua, backup dulu)
+echo ">> [3/7] Pasang guardrails + goals + USER.md (overwrite)..."
 cp "$REPO_DIR/config/guardrails.yaml" "$HERMES_HOME/guardrails.yaml"
-[ -f "$HERMES_HOME/goals.yaml" ] || cp "$REPO_DIR/config/goals.yaml" "$HERMES_HOME/goals.yaml"
-[ -f "$HERMES_HOME/USER.md" ] || cp "$REPO_DIR/user/USER.md" "$HERMES_HOME/USER.md"
-echo "   guardrails.yaml + goals.yaml + USER.md terpasang (edit sesuai selera)"
+for f in goals.yaml USER.md; do
+  src=""; dst="";
+  case "$f" in
+    goals.yaml) src="$REPO_DIR/config/goals.yaml"; dst="$HERMES_HOME/goals.yaml" ;;
+    USER.md)    src="$REPO_DIR/user/USER.md";      dst="$HERMES_HOME/USER.md" ;;
+  esac
+  [ -f "$dst" ] && cp "$dst" "$dst.bak.$(date +%Y%m%d-%H%M%S)" && echo "   backup $f lama disimpan."
+  cp "$src" "$dst"
+done
+echo "   guardrails.yaml + goals.yaml + USER.md terpasang (ditimpasemua)"
 
 # 4. Skill pack
 echo ">> [4/7] Pasang skill pack..."
