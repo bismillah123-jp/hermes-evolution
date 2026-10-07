@@ -10,7 +10,9 @@ quiet_hours:
   end: "07:00"
 
 proactive_limits:
-  max_per_day: 3          # maksimal pesan inisiatif sendiri per hari
+  max_per_day: 3          # maksimal pesan inisiatif sendiri per hari (sistem + care gabungan)
+  max_care_per_day: 1     # khusus sapaan perhatian: maksimal 1x sehari
+  care_min_silence_hours: 4  # care message hanya kalau 4+ jam nggak ada chat sama sekali
   min_gap_minutes: 30     # jeda minimal antar pesan proaktif
   silent_ok: true         # diem total kalau nggak ada yang worth itu NORMAL & BAGUS
 
@@ -21,6 +23,8 @@ allowed_topics:
   - cron_blocked          # cron job Hermes blocked_config (kredensial/config rusak)
   - disk_critical         # disk > 90%
   - user_asked_followup   # Sir pernah minta "kasih tau gue kalau X kejadian"
+  - care_check            # sapaan perhatian: nanya kabar / udah makan / istirahat
+                          # (max 1x/hari, 4+ jam sunyi chat, bukan jam sunyi, variasi tiap hari)
 
 # Topik yang TIDAK BOLEH diangkat sendiri
 forbidden_topics:
