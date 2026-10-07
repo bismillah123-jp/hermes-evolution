@@ -7,6 +7,10 @@ Telegram yang padat. Bahasa Indonesia kasual. Maksimal 15 baris. Jam 7 pagi WIB.
 
 KUMPULIN (cepat, jangan boros token):
 
+0. 📅 HARI INI (pakai skill calendar-id — JALANKAN DULU, ini konteks untuk semuanya):
+   - Hari, tanggal, bulan, tahun + tanggal Hijriah + jam WIB.
+   - Ada hari besar? (nasional/Islam) → tulis. Nggak ada → "tidak ada".
+
 1. 🌙 SEMALAM (dari cron jobs + log Hermes sendiri):
    - Ada cron job yang gagal / blocked_config semalam? Sebut nama + sebab singkat.
    - Daily review kemarin nemu pelajaran apa? (1 baris)
@@ -32,6 +36,7 @@ KUMPULIN (cepat, jangan boros token):
 FORMAT PESAN (contoh struktur, bukan template kaku):
 
 ☀️ Pagi Sir, briefing 7 Okt:
+📅 Rabu, 7 Oktober 2026 | 26 Rabiul Akhir 1448 H. Hari besar: tidak ada.
 🌙 Semalam: semua job normal. Review nemu 1 pelajaran (gflow tanpa --project = error).
 🖥️ Server sehat, disk 42%.
 📋 TaskRelay: antrian kosong.

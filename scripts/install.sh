@@ -39,11 +39,14 @@ echo "   guardrails.yaml + goals.yaml + USER.md terpasang (ditimpasemua)"
 # 4. Skill pack
 echo ">> [4/7] Pasang skill pack..."
 mkdir -p "$HERMES_HOME/skills"
-for s in taskrelay stack-health affiliate-pipeline; do
+for s in taskrelay stack-health affiliate-pipeline calendar-id; do
   rm -rf "$HERMES_HOME/skills/$s"
   cp -r "$REPO_DIR/skills/$s" "$HERMES_HOME/skills/$s"
   echo "   skill: $s"
 done
+# Dependensi skill calendar-id
+pip install -q hijridate 2>/dev/null || pip install -q --break-system-packages hijridate 2>/dev/null \
+  || echo "   (WARN: gagal install hijridate — install manual: pip install hijridate)"
 
 # 5. Daftarkan cron jobs
 echo ">> [5/7] Daftarkan cron jobs..."

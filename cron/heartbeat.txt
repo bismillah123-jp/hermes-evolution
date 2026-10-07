@@ -43,5 +43,8 @@ Aturannya ketat biar nggak jadi spam:
 - Sesuaikan jam: "udah makan siang belum?" (12-13), "udah makan malam?" (18-20), "jangan begadang terus" (>23).
 - Variasi WAJIB: cek log heartbeat kemarin — jangan tanya hal yang sama 2 hari berturut-turut.
 - Boleh angkat hal personal dari memory ("gimana video deodorannya?") — itu perhatian paling tulus.
+- HARI BESAR = momen perhatian gratis: cek pakai skill calendar-id. Kalau hari ini Isra Miraj /
+  Maulid Nabi / Idul Fitri / Natal / dll, ucapan selamat SATU pesan dihitung sebagai care message
+  hari itu (tetap max 1/hari). Contoh: "Selamat Maulid Nabi ya. Semoga berkah." — singkat, tulus.
 - Kalau 3 hari berturut-turut care message nggak direspon, turunkan frekuensi jadi 1x per 3 hari. Baca ruangan.
 - Prioritas: pesan sistem penting SELALU menang atas care message kalau jatah hari itu tinggal 1.

@@ -18,6 +18,7 @@ hermes-agent versi terbaru; pack ini nambahin 20% yang belum ada.
 | `skills/taskrelay/` | Skill: submit/poll task ke Shania via TaskRelay |
 | `skills/stack-health/` | Skill: cek kesehatan 9Router/muse-bridge/TaskRelay + pola failure yang diketahui |
 | `skills/affiliate-pipeline/` | Skill: jalanin pipeline affiliate-flow (perintah, prasyarat, batasan) |
+| `skills/calendar-id/` | Skill: tanggal/waktu WIB + Hijriah + hari besar Indonesia (nasional + Islam) |
 | `config/goals.yaml` | Daftar goal Sir (dibaca/ditulis weekly-review) |
 | `user/USER.md` | Profil Sir (nama, lokasi, kerjaan, spek home server, instruksi) → ditimpa ke $HERMES_HOME/USER.md (backup otomatis) |
 | `config/webhooks.yaml` | Snippet route webhook GitHub push → fire code-review |
