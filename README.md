@@ -11,7 +11,18 @@ hermes-agent versi terbaru; pack ini nambahin 20% yang belum ada.
 |---|---|
 | `soul/SOUL.md` | Persona Hermes yang hidup: blak-blakan, kasual (gue/lu), peduli, jujur soal salah |
 | `cron/daily-review.txt` | Job harian 23:30 — review sesi kemarin, ekstrak kesalahan → tulis pelajaran ke memory, bikin/patch skill |
-| `cron/heartbeat.txt` | Job tiap 45 menit — cek dunia, mutusin sendiri worth ngabarin Sir atau diem |
+| `cron/heartbeat.txt` | Job tiap 45 menit — cek dunia, mutusin sendiri worth ngabarin Sir atau diem (+ care check) |
+| `cron/morning-briefing.txt` | Briefing 07:00: ringkasan semalam + server + TaskRelay + tren affiliate + fokus hari ini |
+| `cron/weekly-review.txt` | Review mingguan tiap Minggu 20:00: audit goals.yaml, nagih yang stagnan |
+| `cron/code-review.txt` | Review push GitHub (dipicu webhook, bukan jadwal): cek diff, jalanin test, lapor |
+| `skills/taskrelay/` | Skill: submit/poll task ke Shania via TaskRelay |
+| `skills/stack-health/` | Skill: cek kesehatan 9Router/muse-bridge/TaskRelay + pola failure yang diketahui |
+| `skills/affiliate-pipeline/` | Skill: jalanin pipeline affiliate-flow (perintah, prasyarat, batasan) |
+| `config/goals.yaml` | Daftar goal Sir (dibaca/ditulis weekly-review) |
+| `config/webhooks.yaml` | Snippet route webhook GitHub push → fire code-review |
+| `docs/WEBHOOKS.md` | Setup webhook adapter + GitHub |
+| `docs/DELEGATE.md` | Playbook paralel: kapan fan-out ke subagents, template brief |
+| `scripts/watchdog/` | bootstrap.sh (systemd idempoten) + watchdog.sh (cron 15 mnt) buat gateway Hermes |
 | `config/guardrails.yaml` | Rem proaktivitas: quiet hours 23:00–07:00, max 3 pesan/hari, topik yang boleh/tidak |
 | `config/learning.yaml` | Snippet buat `config.yaml`: aktifin background review + kurator skill 24 jam |
 | `docs/ENABLE-LEARNING.md` | Checklist verifikasi learning loop bawaan |

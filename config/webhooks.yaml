@@ -1,0 +1,30 @@
+# Webhook routes — snippet untuk ~/.hermes/config.yaml
+# Merge manual di bawah key `platforms:`. Lihat docs/WEBHOOKS.md untuk setup lengkap.
+# Secret: taruh di ~/.hermes/.env sebagai WEBHOOK_SECRET (jangan di config.yaml).
+
+platforms:
+  webhook:
+    enabled: true
+    extra:
+      port: 8644
+      # secret diambil dari env WEBHOOK_SECRET
+      routes:
+        github-push:
+          events: ["push"]
+          # HMAC secret per-route (opsional kalau sudah ada global secret)
+          # secret: ${WEBHOOK_SECRET}
+          prompt: |
+            Push event masuk, fire cron job evolution-code-review.
+            Repository: {repository.full_name}
+            Ref: {ref}
+            Head commit: {head_commit.id} — {head_commit.message}
+            Author: {head_commit.author.name}
+            Compare: {compare}
+          filters:
+            - field: "ref"
+              equals: "refs/heads/main"
+          cron_job: "evolution-code-review"   # nama cron job yang sudah didaftarkan
+          coalesce:
+            key: "repository.full_name"
+            window_seconds: 60
+            max_wait_seconds: 300

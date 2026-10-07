@@ -1,0 +1,34 @@
+# Goals — dibaca & ditulis oleh weekly-review job. Sir boleh edit manual.
+# status: planned | in_progress | blocked | stalled | done
+
+goals:
+  - id: video-deodoran
+    title: "Video affiliate Natural Deodorant Tawas Spray (12 scene, 30 dtk, no-VO, ASMR)"
+    status: blocked
+    last_update: "2026-10-07"
+    blocker: "Flow project affiliate-flow rusak di dashboard; nunggu Sir bikin affiliate-flow-2 + apply 2 patch"
+    next_action: "Sir: hapus project rusak, bikin affiliate-flow-2, apply preflight+novo patch, preflight, run --manual-name"
+
+  - id: affiliate-flow-pipeline
+    title: "Pipeline affiliate-flow stabil & siap produksi"
+    status: in_progress
+    last_update: "2026-10-07"
+    next_action: "Verifikasi real Flow generation setelah project baru jadi (quota + login Sir)"
+
+  - id: posting-rutin
+    title: "Posting affiliate 2x/hari (07-08 & 19-21), link di komen pertama"
+    status: planned
+    last_update: "2026-10-06"
+    next_action: "Mulai setelah video deodoran jadi"
+
+  - id: hermes-evolution
+    title: "Hermes evolution pack terinstall & jalan di home server"
+    status: in_progress
+    last_update: "2026-10-07"
+    next_action: "Sir: git clone + ./scripts/install.sh di home server, merge learning.yaml"
+
+  - id: infra-selfheal
+    title: "Watchdog Hermes di home server (bootstrap + systemd + cron 15 mnt)"
+    status: planned
+    last_update: "2026-10-07"
+    next_action: "Jalankan scripts/watchdog/bootstrap.sh + pasang crontab watchdog.sh"

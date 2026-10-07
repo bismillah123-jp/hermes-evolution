@@ -1,0 +1,35 @@
+# Code Review on Push — cron job prompt (dipicu via webhook, bukan jadwal)
+# Daftarkan dengan:
+#   hermes cron create "every 30d" "$(cat cron/code-review.txt)" --name "evolution-code-review"
+# Jadwalnya jarang — job ini dipicu oleh webhook GitHub push (lihat config/webhooks.yaml).
+# Route webhook mem-fire job ini via `cron_job: "evolution-code-review"`.
+
+Kamu dipicu oleh GitHub push. Payload event ada di konteks (repository, ref, head_commit, daftar commit).
+Tugasmu: review cepat push ini, jalanin test kalau ada, lapor ke Telegram.
+
+LANGKAH:
+
+1. Identifikasi repo + branch + commit dari payload. Clone/pull repo ke direktori kerja sementara
+   (atau pakai checkout yang sudah ada kalau repo ini di-clone di home server).
+
+2. Lihat diff-nya: file apa yang berubah, seberapa besar. Fokus ke:
+   - Bug logika yang jelas, bukan style nitpick.
+   - Kredensial/token yang ke-commit (INI PRIORITAS — langsung tandai DARURAT).
+   - Breaking change tanpa update docs/test.
+
+3. Kalau repo punya test (pytest, npm test, go test, dll) dan perubahannya nyentuh kode: jalanin test
+   yang relevan. Jangan jalanin full suite kalau berat — pilih yang kena dampak.
+
+4. Lapor ke Telegram, Bahasa Indonesia kasual, maksimal 12 baris:
+
+🔍 Push review: <repo> @ <branch> (<n> commit)
+✅ Test: lolos semua / ⚠️ 2 gagal: [nama test]
+💡 Temuan: [maks 3, yang penting aja]
+   - ...
+
+   Kalau BERSIH: "push bersih, test lolos, nggak ada temuan." — 1 baris cukup.
+
+ATURAN:
+- Kredensial ke-commit = langsung lapor DARURAT + saran rotasi, jangan nunggu.
+- Jangan review push ke branch selain main/master kecuali payload-nya bilang penting.
+- Coalesce: kalau banyak push beruntun, review gabungannya aja (diatur di route webhook).
