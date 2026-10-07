@@ -63,10 +63,11 @@ echo "   File dicopy ke $HERMES_HOME/watchdog/. Pasang manual:"
 echo "   sudo bash $HERMES_HOME/watchdog/bootstrap.sh"
 echo "   (crontab -l 2>/dev/null; echo '*/15 * * * * $HERMES_HOME/watchdog/watchdog.sh >> $HERMES_HOME/watchdog.log 2>&1') | crontab -"
 
-# 7. Learning loop bawaan — MERGE MANUAL
-echo ">> [7/7] Learning loop bawaan (MANUAL):"
-echo "   Merge isi config/learning.yaml ke $HERMES_HOME/config.yaml pakai editor."
-echo "   Lihat docs/ENABLE-LEARNING.md. Webhook opsional: docs/WEBHOOKS.md."
+# 7. Learning loop + autonomy — MERGE MANUAL
+echo ">> [7/7] Learning loop + autonomy (MANUAL):"
+echo "   Merge config/learning.yaml DAN config/autonomy.yaml ke $HERMES_HOME/config.yaml pakai editor."
+echo "   Lihat docs/ENABLE-LEARNING.md (learning), docs/TOOLS.md (reasoning effort, browser, MCP),"
+echo "   docs/EXECUTION.md (disiplin eksekusi). Webhook opsional: docs/WEBHOOKS.md."
 
 echo ""
 echo "== SELESAI =="

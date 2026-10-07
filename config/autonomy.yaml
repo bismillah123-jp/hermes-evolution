@@ -1,0 +1,31 @@
+# Autonomy — snippet config.yaml (KEMANDIRIAN)
+# Merge manual ke ~/.hermes/config.yaml. Key dari docs resmi hermes-agent.
+# Prinsip: kurangi permission-ping untuk hal aman, tetap rem untuk hal destruktif.
+
+# 1. Approval mode — "smart" = LLM penilai risiko yang mutusin per-command.
+#    Aman → auto-approve. Berbahaya → auto-deny. Ragu → tanya Sir.
+#    (JANGAN pakai "off"/yolo kecuali di sandbox sekali pakai.)
+approvals:
+  mode: smart
+  timeout: 300
+  # Cron & webhook jalan headless (nggak ada yang jawab prompt):
+  # "deny" = command berbahaya diblokir, agen cari jalan lain. Aman untuk default.
+  cron_mode: deny
+  unattended_mode: deny
+  # Pola yang DIBLOKIR SELALU — bahkan di mode off/yolo. Sesuaikan.
+  deny:
+    - "rm -rf / *"
+    - "rm -rf ~*"
+    - "mkfs*"
+    - "dd if=* of=/dev/*"
+    - ":(){ :|:& };:"        # fork bomb
+    - "*--yolo*"
+
+# 2. Reasoning effort global — bikin dia "lebih pinter" di semua sesi.
+#    Level: none | minimal | low | medium | high | xhigh | max | ultra
+#    Model yang nggak support level tinggi akan di-clamp otomatis.
+agent:
+  reasoning_effort: high
+  # Contoh override per model (opsional):
+  # reasoning_overrides:
+  #   nama-model-murah: low

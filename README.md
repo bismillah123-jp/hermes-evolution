@@ -24,6 +24,9 @@ hermes-agent versi terbaru; pack ini nambahin 20% yang belum ada.
 | `docs/WEBHOOKS.md` | Setup webhook adapter + GitHub |
 | `docs/DELEGATE.md` | Playbook paralel: kapan fan-out ke subagents, template brief |
 | `scripts/watchdog/` | bootstrap.sh (systemd idempoten) + watchdog.sh (cron 15 mnt) buat gateway Hermes |
+| `config/autonomy.yaml` | Snippet approvals (smart mode, deny-list destruktif) + reasoning effort global: high |
+| `docs/TOOLS.md` | Power guide: reasoning effort per job, tangga web (search→fetch→browser), backend browser, MCP |
+| `docs/EXECUTION.md` | Disiplin eksekusi: workspace, verifikasi=menjalankan, tier gas/tanya/jangan, anti-loop |
 | `config/guardrails.yaml` | Rem proaktivitas: quiet hours 23:00–07:00, max 3 pesan/hari, topik yang boleh/tidak |
 | `config/learning.yaml` | Snippet buat `config.yaml`: aktifin background review + kurator skill 24 jam |
 | `docs/ENABLE-LEARNING.md` | Checklist verifikasi learning loop bawaan |
